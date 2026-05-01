@@ -1,0 +1,74 @@
+/**
+ * Global styles and Tailwind configuration.
+ * Theme tokens live here so future light/dark or brand swaps stay centralized.
+ */
+@import "tailwindcss";
+
+@theme {
+  /* Brand colors are fed from config/theme.ts via CSS variables on <body>. */
+  --color-primary: var(--theme-primary);
+  --color-primary-foreground: var(--theme-primary-foreground);
+  --color-secondary: var(--theme-secondary);
+  --color-secondary-foreground: var(--theme-secondary-foreground);
+
+  /* Surfaces */
+  --color-background: var(--theme-background);
+  --color-foreground: var(--theme-foreground);
+  --color-muted: var(--theme-muted);
+  --color-border: var(--theme-border);
+
+  --font-sans: var(--theme-font);
+}
+
+:root {
+  --theme-primary: oklch(0.45 0.18 264);
+  --theme-primary-foreground: oklch(0.99 0 0);
+  --theme-secondary: oklch(0.5 0.08 200);
+  --theme-secondary-foreground: oklch(0.99 0 0);
+  --theme-background: oklch(0.99 0 0);
+  --theme-foreground: oklch(0.2 0.02 264);
+  --theme-muted: oklch(0.55 0.02 264);
+  --theme-border: oklch(0.9 0.01 264);
+  --theme-font: ui-sans-serif, system-ui, sans-serif, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+body.dark {
+  --theme-background: oklch(0.21 0.02 264);
+  --theme-foreground: oklch(0.97 0.01 264);
+  --theme-muted: oklch(0.8 0.02 264);
+  --theme-border: oklch(0.35 0.02 264);
+}
+
+@layer base {
+  body {
+    @apply bg-background font-sans text-foreground antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1 {
+    @apply text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl font-bold tracking-tight sm:text-4xl;
+  }
+
+  h3 {
+    @apply text-xl font-semibold tracking-tight sm:text-2xl;
+  }
+
+  p {
+    @apply leading-relaxed;
+  }
+
+  a,
+  button,
+  input {
+    @apply transition-all duration-200;
+  }
+
+  input::placeholder {
+    color: color-mix(in oklab, var(--theme-muted) 78%, white 22%);
+  }
+}

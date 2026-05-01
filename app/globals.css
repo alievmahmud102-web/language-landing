@@ -1,0 +1,2 @@
+/* App entry: pull in design tokens and Tailwind from /styles */
+@import "../styles/globals.css";

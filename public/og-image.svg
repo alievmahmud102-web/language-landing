@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Bright Future Language Center">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F6F5FF"/>
+      <stop offset="100%" stop-color="#EEF2FF"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <rect x="70" y="70" width="1060" height="490" rx="24" fill="#FFFFFF" stroke="#E6E8F0"/>
+  <text x="120" y="210" fill="#3B2AA8" font-size="34" font-family="Segoe UI, Arial, sans-serif" font-weight="700">
+    Bright Future Language Center
+  </text>
+  <text x="120" y="280" fill="#141824" font-size="52" font-family="Segoe UI, Arial, sans-serif" font-weight="700">
+    =3;89A:89 4;O 45B59
+  </text>
+  <text x="120" y="340" fill="#141824" font-size="52" font-family="Segoe UI, Arial, sans-serif" font-weight="700">
+    8 ?>4@>AB:>2 2 "0H:5=B5
+  </text>
+  <text x="120" y="420" fill="#4E5568" font-size="30" font-family="Segoe UI, Arial, sans-serif">
+    8=8-3@C??K " @>1=K9 C@>: " >43>B>2:0 : IELTS
+  </text>
+</svg>
+
