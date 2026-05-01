@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { CSSProperties } from "react";
 import { Footer, Header } from "@/components/layout";
+import { LanguageProvider } from "@/components/providers/language-provider";
 import { siteConfig } from "@/config/site";
 import { themeConfig } from "@/config/theme";
 import "./globals.css";
@@ -8,11 +9,11 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: siteConfig.seo.title,
+    default: siteConfig.seo[siteConfig.defaultLocale].title,
     template: `%s · ${siteConfig.name}`,
   },
-  description: siteConfig.seo.description,
-  keywords: [...siteConfig.seo.keywords],
+  description: siteConfig.seo[siteConfig.defaultLocale].description,
+  keywords: [...siteConfig.seo[siteConfig.defaultLocale].keywords],
   applicationName: siteConfig.name,
   alternates: {
     canonical: "/",
@@ -21,8 +22,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ru_RU",
     url: siteConfig.url,
-    title: siteConfig.seo.title,
-    description: siteConfig.seo.description,
+    title: siteConfig.seo[siteConfig.defaultLocale].title,
+    description: siteConfig.seo[siteConfig.defaultLocale].description,
     siteName: siteConfig.name,
     images: [
       {
@@ -35,8 +36,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: siteConfig.seo.title,
-    description: siteConfig.seo.description,
+    title: siteConfig.seo[siteConfig.defaultLocale].title,
+    description: siteConfig.seo[siteConfig.defaultLocale].description,
     images: [siteConfig.seo.ogImage],
   },
   robots: {
@@ -68,7 +69,7 @@ export default function RootLayout({
   const bodyClassName = `flex min-h-screen flex-col${themeConfig.darkMode ? " dark" : ""}`;
 
   return (
-    <html lang={siteConfig.locale}>
+    <html lang={siteConfig.defaultLocale}>
       <body
         className={bodyClassName}
         style={
@@ -79,9 +80,11 @@ export default function RootLayout({
           } as CSSProperties
         }
       >
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <LanguageProvider>
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );
