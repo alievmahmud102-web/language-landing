@@ -81,6 +81,10 @@ export type ContactContent = {
     childAgeLabel: string;
     childAgePlaceholder: string;
     submitLabel: string;
+    submitSendingLabel: string;
+    submitErrorMessage: string;
+    /** Shown when Telegram returns 403 / chat has not started the bot */
+    telegramNeedStartHint: string;
     successMessage: string;
     disclaimer: string;
   };
@@ -349,6 +353,11 @@ export const content: Record<Locale, LandingContent> = {
         childAgeLabel: "Возраст ребенка (необязательно)",
         childAgePlaceholder: "Например, 10 лет",
         submitLabel: "Подобрать пробный урок",
+        submitSendingLabel: "Отправляем…",
+        submitErrorMessage:
+          "Не удалось отправить заявку. Попробуйте ещё раз или напишите нам в Telegram.",
+        telegramNeedStartHint:
+          "Откройте вашего бота в Telegram, нажмите «Start» (или «Запустить»), затем снова отправьте форму — иначе бот не может прислать вам сообщение.",
         successMessage:
           "Отлично, заявку получили! Скоро свяжемся с вами и подберем удобное время для первого занятия.",
         disclaimer: "Нажимая кнопку, вы соглашаетесь на обработку персональных данных.",
@@ -604,6 +613,11 @@ export const content: Record<Locale, LandingContent> = {
         childAgeLabel: "Child age (optional)",
         childAgePlaceholder: "For example, 10 years old",
         submitLabel: "Find a trial lesson",
+        submitSendingLabel: "Sending…",
+        submitErrorMessage:
+          "We could not send your request. Please try again or message us on Telegram.",
+        telegramNeedStartHint:
+          "Open your bot in Telegram, tap «Start», then submit the form again — otherwise the bot cannot message you.",
         successMessage:
           "Great! We received your request and will contact you shortly to confirm a convenient time.",
         disclaimer: "By clicking the button, you agree to personal data processing.",
@@ -859,6 +873,11 @@ export const content: Record<Locale, LandingContent> = {
         childAgeLabel: "Bola yoshi (ixtiyoriy)",
         childAgePlaceholder: "Masalan, 10 yosh",
         submitLabel: "Sinov dars tanlash",
+        submitSendingLabel: "Yuborilmoqda…",
+        submitErrorMessage:
+          "So'rovni yuborib bo'lmadi. Qayta urinib ko'ring yoki Telegram orqali yozing.",
+        telegramNeedStartHint:
+          "Telegramda botingizni ochib, «Start» tugmasini bosing, keyin formani qayta yuboring — aks holda bot sizga xabar yubora olmaydi.",
         successMessage:
           "Ajoyib! So'rovingiz qabul qilindi. Tez orada bog'lanib, qulay vaqtni belgilaymiz.",
         disclaimer: "Tugmani bosish orqali shaxsiy ma'lumotlar qayta ishlanishiga rozilik bildirasiz.",
