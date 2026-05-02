@@ -55,10 +55,16 @@ export function ContactSection({ data }: ContactSectionProps) {
           setError(data.form.telegramNeedStartHint);
           return;
         }
-        const apiError =
-          typeof payload.error === "string" && payload.error.trim().length > 0
-            ? payload.error.trim()
-            : null;
+        const errStr =
+          typeof payload.error === "string" ? payload.error.trim() : "";
+        const missingEnvOnServer =
+          payload.code === "MISSING_TELEGRAM_ENV" ||
+          errStr.toLowerCase().includes("not configured for telegram");
+        if (missingEnvOnServer) {
+          setError(data.form.telegramMissingEnvHint);
+          return;
+        }
+        const apiError = errStr.length > 0 ? errStr : null;
         setError(apiError ?? data.form.submitErrorMessage);
         return;
       }

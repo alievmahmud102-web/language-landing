@@ -85,6 +85,8 @@ export type ContactContent = {
     submitErrorMessage: string;
     /** Shown when Telegram returns 403 / chat has not started the bot */
     telegramNeedStartHint: string;
+    /** Production: env vars not set on host (e.g. Vercel dashboard) */
+    telegramMissingEnvHint: string;
     successMessage: string;
     disclaimer: string;
   };
@@ -131,7 +133,7 @@ export const content: Record<Locale, LandingContent> = {
       primaryCta: { label: "Записаться на пробный урок", href: "#contact" },
       secondaryCta: {
         label: "Написать в Telegram",
-        href: "https://t.me/language_school_admin",
+        href: "https://t.me/aviron153",
         helper: "Отвечаем в течение 10 минут в рабочее время",
       },
       trustStats: [
@@ -332,7 +334,7 @@ export const content: Record<Locale, LandingContent> = {
       primaryCta: { label: "Хочу на пробный урок", href: "#contact" },
       secondaryCta: {
         label: "Удобнее написать в Telegram",
-        href: "https://t.me/language_school_admin",
+        href: "https://t.me/aviron153",
         helper: "Можно просто написать: возраст ребенка и текущий уровень",
       },
       reassurancePoints: [
@@ -358,6 +360,8 @@ export const content: Record<Locale, LandingContent> = {
           "Не удалось отправить заявку. Попробуйте ещё раз или напишите нам в Telegram.",
         telegramNeedStartHint:
           "Откройте вашего бота в Telegram, нажмите «Start» (или «Запустить»), затем снова отправьте форму — иначе бот не может прислать вам сообщение.",
+        telegramMissingEnvHint:
+          "На продакшен-сервере не заданы TELEGRAM_BOT_TOKEN и TELEGRAM_CHAT_ID (файл .env.local в git не попадает). В панели хостинга, например Vercel: Settings → Environment Variables → добавьте обе переменные для Production → Redeploy.",
         successMessage:
           "Отлично, заявку получили! Скоро свяжемся с вами и подберем удобное время для первого занятия.",
         disclaimer: "Нажимая кнопку, вы соглашаетесь на обработку персональных данных.",
@@ -369,13 +373,13 @@ export const content: Record<Locale, LandingContent> = {
       ],
       telegramCta: {
         label: "Написать в Telegram за 1 минуту",
-        href: "https://t.me/language_school_admin",
+        href: "https://t.me/aviron153",
       },
       quickContacts: {
         phoneLabel: "Телефон",
         phone: "+998 90 123-45-67",
         telegramLabel: "Telegram",
-        telegram: "@language_school_admin",
+        telegram: "@aviron153",
         addressLabel: "Адрес",
         address: "г. Ташкент, ул. Нукус, 12",
         hoursLabel: "Время работы",
@@ -392,7 +396,7 @@ export const content: Record<Locale, LandingContent> = {
       primaryCta: { label: "Book a trial lesson", href: "#contact" },
       secondaryCta: {
         label: "Message us on Telegram",
-        href: "https://t.me/language_school_admin",
+        href: "https://t.me/aviron153",
         helper: "We usually reply within 10 minutes during working hours",
       },
       trustStats: [
@@ -592,7 +596,7 @@ export const content: Record<Locale, LandingContent> = {
       primaryCta: { label: "Book a trial lesson", href: "#contact" },
       secondaryCta: {
         label: "Prefer Telegram?",
-        href: "https://t.me/language_school_admin",
+        href: "https://t.me/aviron153",
         helper: "Just send your child’s age and current level",
       },
       reassurancePoints: [
@@ -618,6 +622,8 @@ export const content: Record<Locale, LandingContent> = {
           "We could not send your request. Please try again or message us on Telegram.",
         telegramNeedStartHint:
           "Open your bot in Telegram, tap «Start», then submit the form again — otherwise the bot cannot message you.",
+        telegramMissingEnvHint:
+          "TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID are not set on the server (.env.local is not deployed). In your host (e.g. Vercel): Settings → Environment Variables → add both for Production → Redeploy.",
         successMessage:
           "Great! We received your request and will contact you shortly to confirm a convenient time.",
         disclaimer: "By clicking the button, you agree to personal data processing.",
@@ -629,13 +635,13 @@ export const content: Record<Locale, LandingContent> = {
       ],
       telegramCta: {
         label: "Message in Telegram in 1 minute",
-        href: "https://t.me/language_school_admin",
+        href: "https://t.me/aviron153",
       },
       quickContacts: {
         phoneLabel: "Phone",
         phone: "+998 90 123-45-67",
         telegramLabel: "Telegram",
-        telegram: "@language_school_admin",
+        telegram: "@aviron153",
         addressLabel: "Address",
         address: "12 Nukus Street, Tashkent",
         hoursLabel: "Working hours",
@@ -652,7 +658,7 @@ export const content: Record<Locale, LandingContent> = {
       primaryCta: { label: "Sinov darsiga yozilish", href: "#contact" },
       secondaryCta: {
         label: "Telegram orqali yozish",
-        href: "https://t.me/language_school_admin",
+        href: "https://t.me/aviron153",
         helper: "Ish vaqtida odatda 10 daqiqada javob beramiz",
       },
       trustStats: [
@@ -852,7 +858,7 @@ export const content: Record<Locale, LandingContent> = {
       primaryCta: { label: "Sinov darsiga yozilish", href: "#contact" },
       secondaryCta: {
         label: "Telegram orqali yozish qulayroq",
-        href: "https://t.me/language_school_admin",
+        href: "https://t.me/aviron153",
         helper: "Bolaning yoshi va hozirgi darajasini yozib yuboring",
       },
       reassurancePoints: [
@@ -878,6 +884,8 @@ export const content: Record<Locale, LandingContent> = {
           "So'rovni yuborib bo'lmadi. Qayta urinib ko'ring yoki Telegram orqali yozing.",
         telegramNeedStartHint:
           "Telegramda botingizni ochib, «Start» tugmasini bosing, keyin formani qayta yuboring — aks holda bot sizga xabar yubora olmaydi.",
+        telegramMissingEnvHint:
+          "Serverda TELEGRAM_BOT_TOKEN va TELEGRAM_CHAT_ID yo'q (.env.local gitga tushmaydi). Masalan Vercel: Settings → Environment Variables → Production uchun ikkalasini qo'shing → Redeploy.",
         successMessage:
           "Ajoyib! So'rovingiz qabul qilindi. Tez orada bog'lanib, qulay vaqtni belgilaymiz.",
         disclaimer: "Tugmani bosish orqali shaxsiy ma'lumotlar qayta ishlanishiga rozilik bildirasiz.",
@@ -889,13 +897,13 @@ export const content: Record<Locale, LandingContent> = {
       ],
       telegramCta: {
         label: "Telegramga 1 daqiqada yozish",
-        href: "https://t.me/language_school_admin",
+        href: "https://t.me/aviron153",
       },
       quickContacts: {
         phoneLabel: "Telefon",
         phone: "+998 90 123-45-67",
         telegramLabel: "Telegram",
-        telegram: "@language_school_admin",
+        telegram: "@aviron153",
         addressLabel: "Manzil",
         address: "Toshkent shahri, Nukus ko'chasi 12",
         hoursLabel: "Ish vaqti",

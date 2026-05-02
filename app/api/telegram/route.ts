@@ -24,7 +24,11 @@ export async function POST(request: Request) {
 
   if (!token || !chatId) {
     return NextResponse.json(
-      { ok: false, error: "Server is not configured for Telegram." },
+      {
+        ok: false,
+        error: "Server is not configured for Telegram.",
+        code: "MISSING_TELEGRAM_ENV",
+      },
       { status: 500 },
     );
   }
